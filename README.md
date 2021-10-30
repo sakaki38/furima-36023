@@ -32,7 +32,7 @@
 
 ### association
 
-- belongs_to :user
+- belongs_to : user
 
 ## orders テーブル
 
@@ -48,4 +48,4 @@
 
 ### association
 
-- belongs_to :item
+- has_one :item
