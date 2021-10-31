@@ -35,7 +35,7 @@
 ### association
 
 - belongs_to :user
-- belongs_to :buy
+- has_one :buy
 
 ## buyers テーブル
 
@@ -51,7 +51,7 @@
 
 ### association
 
-- belongs_to :buys
+- belongs_to :buy
 
 ### buys テーブル
 
@@ -63,5 +63,5 @@
 ### association
 
 - belongs_to :user
-- has_one :item
+- belongs_to :item
 - has_one :buyer
