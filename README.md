@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| column               | type     | option                   |
-| ---------------------| ---------| -------------------------|
-| first_name           | string   | null: false              |
-| last_name            | string   | null: false              |
-| first_name_kana      | string   | null: false              |
-| last_name_kana       | string   | null: false              |
-| email                | string   | null: false, default: "" |
-| encrypted_password   | string   | null: false, default: "" |
-| nickname             | string   | null: false              |
-| birthday             | date     | null: false              |
+| column               | type     | option                                 |
+| ---------------------| ---------| ---------------------------------------|
+| first_name           | string   | null: false                            |
+| family_name          | string   | null: false                            |
+| first_name_kana      | string   | null: false                            |
+| family_name_kana     | string   | null: false                            |
+| email                | string   | null: false, default: "", unique: true |
+| encrypted_password   | string   | null: false, default: ""               |
+| nickname             | string   | null: false                            |
+| birthday             | date     | null: false                            |
 
 ### association
 
@@ -21,31 +21,36 @@
 
 | column               | type           | option                         |
 | ---------------------| -------------- | ------------------------------ |
-| item_name            | string         | null: false                    |
+| name                 | string         | null: false                    |
 | status               | string         | null: false                    |
-| delivery_burden      | string         | null: false                    |
+| category_id          | integer        | null: false, foreign_key: true |
+| area_id              | integer        | null: false, foreign_key: true |
 | explanation          | text           | null: false                    |
 | detail               | string         | null: false                    |
-| delivery_day         | date           | null: false                    |
+| shipping_day         | string         | null: false                    |
+| buyer_id             | integer        | null: false, foreign_key: true |
+| seller_id            | integer        | null: false, foreign_key: true |
 | price                | integer        | null: false                    |
-| user                 | references     | null: false, foreign_key: true |
 
 ### association
 
-- belongs_to : user
-- has_one :order
+- belongs_to :user
+- has_one :buyer
 
-## orders テーブル
+## buyer テーブル
 
 | column               | type           | option                         |
 | ---------------------| -------------- | ------------------------------ |
-| postcode             | integer        | null: false                    |
-| prefecture           | string         | null: false                    |
+| family_name          | string         | null: false                    |
+| first_name           | string         | null: false                    |
+| family_name_kana     | string         | null: false                    |
+| first_name_kana      | string         | null: false                    |
+| post_code            | integer        | null: false                    |
 | city                 | string         | null: false                    |
-| block                | integer        | null: false                    |
+| prefecture           | string         | null: false                    |
+| address              | integer        | null: false                    |
 | phone_number         | integer        | null: false, default: ""       |
-| credit_card          | integer        | null: false, default: ""       |
-| item                 | references     | null: false, foreign_key: true |
+| user_id              | integer        | null: false, foreign_key: true |
 
 ### association
 
