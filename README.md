@@ -34,9 +34,9 @@
 ### association
 
 - belongs_to :user
-- has_one :buy
+- has_one :buyer
 
-## order テーブル
+## buyers テーブル
 
 | column               | type           | option                         |
 | ---------------------| -------------- | ------------------------------ |
