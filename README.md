@@ -62,3 +62,4 @@
 ### association
 
 - has_many :item
+- has_one :buyer
