@@ -15,8 +15,8 @@
 
 ### association
 
-- has_many :items, dependent: :destroy
-- has_one :buy
+- has_many :items
+- has_many :buys
 
 ### items テーブル
 
@@ -35,8 +35,7 @@
 ### association
 
 - belongs_to :user
-- has_one :buyer
-- has_many :buy
+- has_one :buy
 
 ## buyers テーブル
 
@@ -47,7 +46,7 @@
 | area_id              | integer        | null: false                    |
 | address              | string         | null: false                    |
 | phone_number         | string         | null: false                    |
-| buy_id               | integer        | null: false, foreign_key: true |
+| buy                  | references     | null: false, foreign_key: true |
 | building_name        | string         |                                |
 
 ### association
@@ -63,5 +62,5 @@
 
 ### association
 
-- belongs_to :item
-- has_one :buyer, :user
+- belongs_to :user
+- has_one : items
